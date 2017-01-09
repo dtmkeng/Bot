@@ -8,7 +8,7 @@ login({email: "kengsy69@gmail.com", password: "pumai1234"}, function callback (e
 
     var stopListening = api.listen(function(err, event) {
         if(err) return console.error(err);
-        
+
         switch(event.type) {
 
           case "message":
@@ -18,21 +18,22 @@ login({email: "kengsy69@gmail.com", password: "pumai1234"}, function callback (e
             }
             if(event.body ==='rinna'||event.body ==='ริน'||event.body ==='รินๆ') {
                   var route = Math.round(Math.random()*10);
-
               if(route==1){api.sendMessage("ว่าไรหรอ", event.threadID);
               api.sendMessage("เออๆ\nทำอะไรอยู่หรอ", event.threadID);}
               else if (route==2) {api.sendMessage("เหงาหรอ><", event.threadID);
-                                 api.sendMessage("เออๆ\nทำอะไรอยู่หรอ", event.threadID);}
+                               if(message==='เหงาหรอ><'){
+                                 api.sendMessage("เก่งทำรไรอยู่อ่า",event.threadID);
+                               }}
               else if (route==3) {api.sendMessage("เเฮ่กๆ คิดถึงเค้าหรอ", event.threadID);}
               else if (route==4) {api.sendMessage("เออมีไร", event.threadID);
                                   api.sendMessage("เออๆ\nทำอะไรอยู่หรอ", event.threadID);}
               else if (route==5) {api.sendMessage("เปนไรอีกนิ", event.threadID);
                                   api.sendMessage("ทำอะไรอยู่หรอ", event.threadID);
-                                  api.sendMessage("เออๆ\nทำอะไรอยู่หรอ", event.threadID);}
+                                }
               else if (route>5) { api.sendMessage("คิดถึงละชิ", event.threadID);
                                   api.sendMessage("เออๆ\nทำอะไรอยู่หรอ", event.threadID);}
             }
-            if(event.body === 'ทำไรๆ'||event.body === 'ทำไร') {
+            if(event.body === 'ทำไรๆ'||event.body === 'ทำไร'||event.body === 'ทำไรอยู่อ่า'||event.body === '><') {
               var route1 = Math.round(Math.random()*10);
               if(route==1){api.sendMessage("ว่าไรหรอ", event.threadID);}
               else if (route1==2) {api.sendMessage("เล่นเกม", event.threadID);}
@@ -42,12 +43,8 @@ login({email: "kengsy69@gmail.com", password: "pumai1234"}, function callback (e
               else if (route1==6) {api.sendMessage("คิดถึงเเกเเหละ", event.threadID);}
               else if (route1==7) {api.sendMessage("><", event.threadID);}
               else if (route1>7) {api.sendMessage("เล่นig", event.threadID);}
-              if(body==='นั่งเล่น')
-              {
-                api.sendMessage("hi",event.threadID);
-
-              }
             }
+            //if()
             api.markAsRead(event.threadID, function(err) {
               if(err) console.log(err);
             });
