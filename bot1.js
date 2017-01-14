@@ -65,7 +65,8 @@ login({email: "kengsy69@gmail.com", password: "pumai1234"}, function callback (e
                                   }
             }
             //_evenplaygame
-            if (event.body==='เล่นเกม'||event.body==='เล่นเกมๆ'||event.body==='เล่นเกมอยู่'||event.body==='นั่งเล่นเกม'||event.body==='นอนเล่นเกม') {
+            if (event.body==='เล่นเกม'||event.body==='เล่นเกมๆ'||event.body==='เล่นเกมอยู่'||event.body==='นั่งเล่นเกมด้วยไหม'||event.body==='นอนเล่นเกม'
+              ||event.body==='มาๆเล่นเกม') {
                  var routePlaygame = Math.round(Math.random()*10);
                  if(routePlaygame>1&&routePlaygame<4){
                  api.sendMessage("เชอะ เล่นเเต่เกมไม่ไปอ่านหนังสิอหรอ...",event.threadID);
@@ -103,8 +104,21 @@ login({email: "kengsy69@gmail.com", password: "pumai1234"}, function callback (e
                     api.sendMessage("มาๆมาเล่นด้วยกันเพื่อจะหายคิดถึงบาง",event.threadID);
                  }
             }
+            //evenEatten
+            if (event.body==='กินข้าวยัง'||event.body==='ตอนนี้กินไรยัง'||event.body==='กินไรบางเเล้ว'||event.body==='ไปหาไรกินยัง'||event.body==='กินข้าวๆ'||event.body==='กินไรยัง') {
+                 var routeEatten = Math.round(Math.random()*10);
+                 if(routeEatten>1&&routeEatten<4){
+                 api.sendMessage("เค้ากินข้าวอ่า พึ่งไปกินมาเมื่อกี้เอง",event.threadID);
+                 }
+                 else if (routeEatten>4&&routeEatten<6) {
+                    api.sendMessage("ตอนนี้ยังไม่หิวเลยขอเล่นสักหน่อยค่อยไปกินละกัน",event.threadID);
+                 }
+                 else if (routeEatten>6&&routeEatten<10) {
+                    api.sendMessage("ไม่หิวอ่า ของไปกินได้ไหมเอาไป\nกินรวมๆกัยเมื้ออื่นเลยได้ไหม",event.threadID);
+                 }
+            }
 
-            if(event.body === 'ทำไรๆ'||event.body === 'ทำไร'||event.body === 'ทำไรอยู่อ่า'||event.body === '><') {
+            if(event.body === 'ทำไรๆ'||event.body === 'ทำไร'||event.body === 'ทำไรอยู่อ่า'||event.body === '><'||event.body === 'ทำไรอยู่หรอ') {
                 var route1 = Math.round(Math.random()*10);
               if(route==1){api.sendMessage("ว่าไรหรอ", event.threadID);}
               else if (route1==2) {api.sendMessage("เล่นเกม", event.threadID);
